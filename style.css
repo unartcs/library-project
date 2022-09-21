@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* --color0: #FF9494;
+    --color1: #FFD1D1;
+    --color2: #FFE3E1;
+    --color3: #FFF5E4; */
+    --color0: #FDEEDC;
+    --color1: #FFD8A9;
+    --color2: #F1A661;
+    --color3: #E38B29;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--color1);
+    font-family: 'Merriweather', serif;
+
+}
+
+.form-container {
+    position: fixed;
+    /* Sit on top of the page content */
+    display: none;
+    /* Hidden by default */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black background with opacity */
+    z-index: 2;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    /* Add a pointer on hover */
+}
+
+.add-book-form {
+    /* visibility: collapse; */
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    align-items: center;
+    align-content: center;
+    gap: 15px;
+    border: 5px solid var(--color2);
+    padding: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: var(--color0);
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: var(--color3);
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    background-color: var(--color2);
+    box-shadow: var(--color2) 0px 2px 8px 0px;
+    margin-bottom: 55px;
+    color: var(--color0);
+}
+
+@media screen and (max-width: 600px) {
+    .header-logo {
+        font-size: 24px;
+        font-weight: 900;
+    }
+}
+
+
+
+@media screen and (min-width: 601px) {
+    .header-logo {
+        font-size: 46px;
+        font-weight: 900;
+    }
+}
+
+
+fieldset {
+    border: none;
+}
+
+.read-cb-fs {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-size: 35px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.read-cb-fs>input {
+    width: 50px;
+}
+
+.form-fs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 35px;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.form-fs>input {
+    height: 1.5rem;
+    font-size: 24px;
+}
+
+.add-book-form>button {
+    width: 200px;
+    height: 50px;
+    transition: all ease-in-out 0.2s;
+    background-color: var(--color0);
+    border: none;
+    font-size: 24px;
+    color: var(--color3);
+    font-weight: 600;
+}
+
+.add-book-form>button:hover {
+    transition: all ease-in-out 0.2s;
+    background-color: var(--color2);
+    color: var(--color0);
+}
+
+.button-container {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    border: 40px solid var(--color0);
+    border-radius: 50%;
+    align-content: center;
+    transform: rotate(0deg);
+    transition: all ease-in-out 0.1s;
+    box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.729);
+    z-index: 3;
+}
+
+.plus-button::before {
+    content: '';
+    height: 10px;
+    width: 40px;
+    background-color: var(--color2);
+    position: absolute;
+    margin-top: -5px;
+    margin-left: -20px;
+    transition: all ease-in-out 0.5s;
+}
+
+.plus-button::after {
+    content: '';
+    height: 40px;
+    width: 10px;
+    background-color: var(--color2);
+    position: absolute;
+    left: 15px;
+    top: -15px;
+    margin-left: -20px;
+    margin-top: -5px;
+    transition: all ease-in-out 0.1s;
+}
+
+.plus-button:hover,
+.button-container:hover {
+    cursor: pointer;
+}
+
+.plus-button {
+    transition: all ease-in-out 0.1s;
+}
+
+.button-container:hover {
+    transform: rotate(45deg);
+    transition: all ease-in-out 0.1s;
+}
+
+
+.book-shelf-container>ul {
+    align-items: flex-start;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 190px);
+    grid-template-rows: repeat(auto-fill, 190px);
+    grid-gap: 50px;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: var(--color3);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 16px;
+    box-shadow: 1px 1px 39px 8px rgba(212, 102, 102, 0.71) inset;
+    color: var(--color1);
+    max-width: 275px;
+    min-width: 175px;
+    max-height: 275px;
+    min-height: 175px;
+    /* justify-content: space-between; */
+    margin-bottom: 15px;
+}
+
+.book-shelf-container {
+    margin-left: 25px;
+    margin-right: 25px;
+
+    width: 95v;
+    height: 100%;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+h3,
+h4 {
+    font-size: 14px;
+}
+
+.book>button {
+    background-color: var(--color0);
+    border: none;
+    padding: 5px;
+    transition: all ease-in-out 0.2s;
+    margin-top: auto;
+
+}
+
+.book>button:hover {
+    transition: all ease-in-out 0.2s;
+    background-color: var(--color1);
+}
+
+.toggle-label-container {
+    display: flex;
+    gap: 5px;
+    margin-top: auto;
+
+}
+
+.toggle-label-container>input {
+    display: inline;
+    width: 20px;
+
+}

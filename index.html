@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <link rel=stylesheet href="style.css">
+    <script src="libraryApp.js" defer></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-logo">Book Library</div>
+    </div>
+    <div class="book-shelf-container">
+        <ul>
+        </ul>
+    </div>
+    <div class="button-container">
+        <div class="plus-button"></div>
+        <!-- <button class="add-book-btn"></button> -->
+    </div>
+    <div class="form-container">
+        <form name='book-form' class="add-book-form">
+            <fieldset class="form-fs">
+                <label for="book-title">Book Title: </label>
+                <input type="text" id="book-title" name="book-title" required>
+            </fieldset>
+            <fieldset class="form-fs">
+                <label for="book-author">Book Author: </label>
+                <input type="text" id="book-author" name="book-author" required>
+            </fieldset>
+            <fieldset class="form-fs">
+
+                <label for="book-pages">Book Pages: </label>
+                <input type="number" id="book-pages" name="book-pages">
+            </fieldset>
+            <fieldset class="read-cb-fs">
+                <label for="book-read">Read: </label>
+                <input type="checkbox" id="book-read" name="book-read">
+            </fieldset>
+            <button type="submit" value="Submit">Submit</button>
+        </form>
+
+    </div>
+</body>
+
+</html>
