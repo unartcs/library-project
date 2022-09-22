@@ -5,15 +5,36 @@
     padding: 0;
 }
 
-:root {
-    /* --color0: #FF9494;
+/* :root { */
+/* --color0: #FF9494;
     --color1: #FFD1D1;
     --color2: #FFE3E1;
     --color3: #FFF5E4; */
+/* --color0: #FDEEDC;
+    --color1: #FFD8A9;
+    --color2: #F1A661;
+    --color3: #E38B29;
+} */
+
+html[data-theme='light'] {
     --color0: #FDEEDC;
     --color1: #FFD8A9;
     --color2: #F1A661;
     --color3: #E38B29;
+    --color4: white;
+}
+
+html[data-theme='dark'] {
+    --color0: #6e6e6e;
+    --color1: #046163;
+    --color2: #292e39;
+    --color3: #0f141a;
+    --color4: gray;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -26,23 +47,16 @@ body {
 
 .form-container {
     position: fixed;
-    /* Sit on top of the page content */
     display: none;
-    /* Hidden by default */
     width: 100%;
-    /* Full width (cover the whole page) */
     height: 100%;
-    /* Full height (cover the whole page) */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Black background with opacity */
     z-index: 2;
-    /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer;
-    /* Add a pointer on hover */
 }
 
 .add-book-form {
@@ -163,7 +177,7 @@ fieldset {
     position: absolute;
     margin-top: -5px;
     margin-left: -20px;
-    transition: all ease-in-out 0.5s;
+    transition: all ease-in-out 0.1s;
 }
 
 .plus-button::after {
@@ -199,8 +213,8 @@ fieldset {
     justify-content: space-between;
     display: grid;
     grid-template-columns: repeat(auto-fill, 190px);
-    grid-template-rows: repeat(auto-fill, 190px);
-    grid-gap: 50px;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-gap: 15px;
 }
 
 .book {
@@ -217,14 +231,15 @@ fieldset {
     max-height: 275px;
     min-height: 175px;
     /* justify-content: space-between; */
-    margin-bottom: 15px;
+    /* margin-bottom: 45px; */
+
 }
 
 .book-shelf-container {
     margin-left: 25px;
     margin-right: 25px;
 
-    width: 95v;
+    width: 95vw;
     height: 100%;
 }
 
@@ -266,4 +281,113 @@ h4 {
     display: inline;
     width: 20px;
 
+}
+
+.book-shelf-container {
+    margin-top: auto;
+}
+
+.credit-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 25px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-bottom: 75px;
+}
+
+.git-icon {
+    transform: rotate(0);
+    transition: all ease-in-out 0.5s;
+}
+
+.git-icon:hover {
+    transform: rotate(360deg);
+    transition: all ease-in-out 0.5s;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="checkbox"] {
+    background-color: var(--color4);
+    accent-color: var(--color2);
+}
+
+/* .custom-theme-button {
+    content: '';
+    background-color: red;
+    height: 40px;
+    width: 100px;
+    position: absolute;
+} */
+
+#cb-theme {
+    display: none;
+    visibility: hidden;
+    position: relative;
+    display: block;
+}
+
+.custom-theme-button {
+    position: relative;
+    display: flex;
+    width: 70px;
+    height: 50px;
+    background-color: var(--color4);
+    color: var(--color2);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: ease-in-out all 0.2s;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    bottom: 5px;
+    box-shadow: 1px 1px 5px 5px var(--color2) inset;
+    z-index: 3;
+}
+
+.toggle-theme {
+    visibility: hidden;
+}
+
+.cb-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cb-theme:checked ~ .custom-theme-button {
+    background-color: beige;
+    color: var(--color0);
+    transition: ease-in-out all 0.2s;
+}
+
+.theme-button {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-theme-button:hover {
+    transition: ease-in-out all 0.2s;
+    box-shadow: 1px 1px 5px 5px var(--color1) inset;
+    
 }

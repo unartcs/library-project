@@ -3,9 +3,12 @@ const submitBookButton = document.querySelector('.add-book-form > button')
 const openFormButton = document.querySelector('.button-container')
 const formContainer = document.querySelector('.form-container')
 const plusButton = document.querySelector('.plus-button')
+// const themeButton = document.querySelector('.toggle-theme')
+const themeButton = document.querySelector('.custom-theme-button')
 myLibrary = [];
 let formContainerOpen = false;
 let bookId = 0;
+let theme = 'light';
 
 function Book(title, author, pages, read, id) {
     this.title = title;
@@ -13,6 +16,15 @@ function Book(title, author, pages, read, id) {
     this.pages = pages;
     this.read = read;
     this.id = id;
+}
+
+Book.prototype.toggleReadBook = function () {
+    if (this.read === true) {
+        this.read = false;
+    }
+    else {
+        this.read = true;
+    }
 }
 
 openFormButton.addEventListener('click', function () {
@@ -33,7 +45,7 @@ submitBookButton.addEventListener('click', function (e) {
     let author = document.forms['book-form']['book-author'].value;
     let pages = document.forms['book-form']['book-pages'].value;
     let read = document.forms['book-form']['book-read'].checked;
-    if (title != '' && author != '') {
+    if (title != '' && author != '' && author.trim().length != 0 && title.trim().length != 0) {
         e.preventDefault();
         bookId++;
         const newBook = new Book(title, author, pages, read, bookId);
@@ -42,6 +54,9 @@ submitBookButton.addEventListener('click', function (e) {
         formContainer.style.display = 'none';
         plusButton.style.transform = "rotate(0deg)";
         formContainerOpen = false;
+    } else {
+        e.preventDefault();
+        return;
     }
 
 })
@@ -101,19 +116,37 @@ function addBookToLibrary(book) {
         myLibrary.splice(index, 1);
         updateLibrary()
     })
+    /// Changed the below method of toggling read to an Object prototype
     toggleRead.addEventListener('click', function () {
         if (book.read === true) {
             newBookGrid.style.boxShadow = '0px 0px 5px 2px rgba(212, 102, 102, 0.71) inset'
-            const index = myLibrary.map(book => book.id).indexOf(book.id)
-            myLibrary[index].read = false;
+            // const index = myLibrary.map(book => book.id).indexOf(book.id)
+            // myLibrary[index].read = false;
+            book.toggleReadBook();
             console.log(book.read)
 
         } else if (book.read === false) {
             newBookGrid.style.boxShadow = '0px 0px 5px 2px rgba(133, 212, 102, 0.71) inset'
-            const index = myLibrary.map(book => book.id).indexOf(book.id)
-            myLibrary[index].read = true;
+            // const index = myLibrary.map(book => book.id).indexOf(book.id) 
+            // myLibrary[index].read = true;
+            book.toggleReadBook();
             console.log(book.read)
 
         }
     })
 }
+
+themeButton.addEventListener('click', function () {
+    if (theme === 'dark') {
+        theme = 'light';
+        document.documentElement.setAttribute('data-theme', 'light')
+        themeButton.textContent = 'Night Mode'
+        
+    } else {
+        theme = 'dark';
+        document.documentElement.setAttribute('data-theme', 'dark')
+        themeButton.textContent = 'Light Mode'
+    }
+
+
+})
