@@ -362,9 +362,6 @@ input[type="checkbox"] {
     z-index: 3;
 }
 
-.toggle-theme {
-    visibility: hidden;
-}
 
 .cb-label {
     display: flex;
