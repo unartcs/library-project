@@ -369,7 +369,7 @@ input[type="checkbox"] {
     align-items: center;
 }
 
-#cb-theme:checked ~ .custom-theme-button {
+#cb-theme:checked~.custom-theme-button {
     background-color: beige;
     color: var(--color0);
     transition: ease-in-out all 0.2s;
@@ -386,5 +386,19 @@ input[type="checkbox"] {
 .custom-theme-button:hover {
     transition: ease-in-out all 0.2s;
     box-shadow: 1px 1px 5px 5px var(--color1) inset;
+
+}
+
+input[type='checkbox'] {
+    background-color: red;
     
+}
+input[type='checkbox']::before {
+    background-color: red;
+    content: '';
+}
+
+input[type='checkbox']::after {
+    background-color: red;
+    content: '';
 }
